@@ -1,4 +1,4 @@
-/+  verb, dbug, *sss, rudder, *poast
+/+  verb, dbug, *sss, rudder, *poast, goon
 /~  pages  (page:rudder rock action)  /app/poast/webui
 ::
 %-  agent:dbug
@@ -113,7 +113,52 @@
     [~ %sss %behn @ @ @ %poast ~]  [(behn:su |3:wire) this]
   ==
 ::
-++  on-peek   _~
+++  on-peek
+  |=  =path
+  |^  ^-  (unit (unit cage))
+  ?+    path  !!
+      [%x %goon ~]
+    ``noun+!>(ui)
+  ==
+  ++  stringify-id
+    |=  =id
+    ^-  iota:goon
+    ?@  id
+      da/id
+    da/(add [date num]:id)
+  ++  ui
+    ^-  goad:goon
+    :+  %my-poasts
+      :~  lede/'My Poasts'
+          info/'Poasts that I have made'
+          hint/~[list/~]
+      ==
+    %+  turn  (tap:on-poast (~(got by read:pu) [%poast ~]))
+    |=  [=id =poast]
+    ^-  goad:goon
+    :+  (stringify-id id)
+      :~  value/iota/t/text.poast
+          :: TODO: add actions
+      ==
+    :~
+      :+  %author
+        :~  lede/'Author'
+            value/iota/p/ship.poast
+        ==
+      ~
+      ::
+      :+  %date
+        :~  lede/'Timestamp'
+            value/iota/da/?@(id.poast id.poast date.id.poast)
+        ==
+      ~
+    ==
+    :: *goad:goon
+    :: ~ :: *goad:goon
+    :: %+  turn  (tap:on-poast read:pu)
+    :: |=  [=id =poast]
+    :: *goad:goon
+  --
 ++  on-watch  _`this
 ++  on-leave  _`this
 ++  on-fail   _`this
